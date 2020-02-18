@@ -47,6 +47,13 @@
         background-color: $color-white;
     }
 }
+    &--green{
+        background-color: $color-primary;
+        color: $color-white;
+        &:hover::after{
+        background-color: $color-primary;
+    }
+}
     
 }
 
