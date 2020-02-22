@@ -101,7 +101,7 @@ body {
 .u-margin-bottom-big {
   margin-bottom: 8rem; }
 
-.btn:link, .btn:visited {
+.btn, .btn:link, .btn:visited {
   position: relative;
   font-size: 1.6rem;
   text-transform: uppercase;
@@ -109,12 +109,14 @@ body {
   display: inline-block;
   padding: 1.5rem 4rem;
   border-radius: 10rem;
-  animation: slideUp 0.3s linear 1s both; }
+  animation: slideUp 0.3s linear 1s both;
+  border: none;
+  cursor: pointer; }
 
-.btn:hover {
+.btn:focus {
   transform: translateY(-0.3rem);
   box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.2); }
-  .btn:hover::after {
+  .btn:focus::after {
     transform: scale(1.2, 1.7);
     opacity: 0; }
 
@@ -130,7 +132,8 @@ body {
   left: 0;
   transition: all .2s; }
 
-.btn:active {
+.btn:hover, .btn:active {
+  outline: none;
   transform: translateY(-0.1rem);
   box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.2); }
 
@@ -309,7 +312,8 @@ body {
   border: none;
   border-bottom: 3px solid transparent;
   width: 80%;
-  display: block; }
+  display: block;
+  transition: all .3s; }
   .form__input:focus {
     outline: none;
     box-shadow: 0 1rem 1rem rgba(0, 0, 0, 0.1);
@@ -331,6 +335,44 @@ body {
   opacity: 0;
   visibility: hidden;
   transform: translateY(-4rem); }
+
+.form__radio-group {
+  width: 49%;
+  display: inline-block; }
+
+.form__radio-input {
+  display: none; }
+
+.form__radio-label {
+  font-size: 1.6rem;
+  cursor: pointer;
+  position: relative;
+  padding-left: 4.5rem; }
+
+.form__radio-button {
+  height: 3rem;
+  width: 3rem;
+  border: 5px solid #55c57a;
+  border-radius: 50%;
+  display: inline-block;
+  position: absolute;
+  top: -.4rem;
+  left: 0; }
+  .form__radio-button::after {
+    content: "";
+    position: absolute;
+    height: 1.3rem;
+    width: 1.3rem;
+    background-color: #55c57a;
+    border-radius: 50%;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    opacity: 0;
+    transition: opacity .2s; }
+
+.form__radio-input:checked ~ .form__radio-label .form__radio-button::after {
+  opacity: 1; }
 
 .feature-box {
   background-color: rgba(255, 255, 255, 0.8);
